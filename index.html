@@ -1,0 +1,66 @@
+<html>
+    <title>Calendar Booking Demo</title>
+<head>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <h1>Demo web app -calendar problem </h1>
+    </head>
+<body>
+    <div id="scheduleSetter1" class="scheduleSetter">
+    <div class="pCard">
+    <label for="timeSelP1Start">P1 starts at:</label>
+     <input type="time" id="timeSelP1Start" value="08:00" name="appt"
+       min="00:00" max="23:59" required>
+     until:
+     <input type="time" id="timeSelP1End" value="16:00" name="appt"
+       min="00:00" max="23:59" required>
+    </div>
+    
+    <div class="pCard">
+    <label for="timeSelP2Start">P2 starts at:</label>
+     <input type="time" id="timeSelP2Start" value="08:00" name="appt"
+       min="00:00" max="23:59" required>
+     until:
+     <input type="time" id="timeSelP2End" value="16:00" name="appt"
+       min="00:00" max="23:59" required>
+    </div>
+    <button class="btn" onclick="fu()">Confirm</button>
+
+    </div>
+    <div id="scheduleSetter2" class="scheduleSetter disabled">
+    <div class="pCard">
+        
+    <label for="taskSelP1Start">P1-Meeting starts at:</label>
+    <input type="time" id="taskSelP1Start" value="12:00" name="appt"
+       min="00:00" max="23:59" required>
+     until:
+    <input type="time" id="taskSelP1End" value="12:00" name="appt"
+       min="00:00" max="23:59" required>
+        <button onclick="addTask(1)">Add</button>
+    
+    </div>
+    <div class="pCard">
+        
+    <label for="taskSelP2Start">P2-Meeting starts at:</label>
+    <input type="time" id="taskSelP2Start" value="12:00" name="appt"
+       min="00:00" max="23:59" required>
+     until:
+    <input type="time" id="taskSelP2End" value="12:00" name="appt"
+       min="00:00" max="23:59" required>
+        <button onclick="addTask(2)">Add</button>
+    </div>
+    
+    <div id="reqMeetTimeContainer">
+        <label for="reqMeetTime">Meeting time in minutes:</label>
+    <input id="reqMeetTime" type="number" value="30">
+    </div>
+    
+    <button class="btn" onclick="generateMeeting()">GENERATE MEETINGS</button>
+    </div>
+    <div id="scheduleSetter3" class="scheduleSetter">
+        <ul id="list">
+    </ul>
+    </div>
+    
+</body>
+</html>
