@@ -68,15 +68,15 @@ function addTask(p){
     console.log(start,end);
     if(verify(start,end,p)){
         if(start < maxStart){
-                bookedTime.push([maxStart,end]); return;
+                bookedTime.push([maxStart,end]);
            }
         if(end> minEnd){
-            bookedTime.push([start,minEnd]); return ;
+            bookedTime.push([start,minEnd]);
         }
         bookedTime.push([start,end]);
         alert("Booked !");
 
-        
+        return;
     }
     else alert("Invalid times!");    
 }
@@ -110,7 +110,14 @@ function generateMeeting(){
     reqMeetTime= document.getElementById("reqMeetTime").value;
     document.getElementById("list").innerHTML="Available times";
     
-    if(bookedTime.length==0){alert("No meetings booked you can meet between "+toTime(maxStart)+"0 and "+toTime(minEnd)+"0"); return;}
+    if(bookedTime.length==0){alert("No meetings booked you can meet between "+toTime(maxStart)+"0 and "+toTime(minEnd)+"0");            
+        var node = document.createElement("LI"); 
+            var text = toTime(maxStart)+"->"+toTime(minEnd);
+            var textnode = document.createTextNode(text);  
+node.appendChild(textnode);                       
+document.getElementById("list").appendChild(node);
+    }
+    
     mergedMeetings=mergeIntervals();
     var listForPrint = [];
     
@@ -137,14 +144,6 @@ function generateMeeting(){
 node.appendChild(textnode);                       
 document.getElementById("list").appendChild(node);
     }
-    if(listForPrint.length == 0){
-        var node = document.createElement("LI"); 
-            var text = toTime(maxStart)+"->"+toTime(minEnd);
-            var textnode = document.createTextNode(text);  
-            var btn= document.createElement("BUTTON");
-                btn.innerHTML="Set Meeting";
-//node.appendChild(textnode);                       
-document.getElementById("list").appendChild(btn);
-    }
+    
     
 }
